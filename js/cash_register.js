@@ -46,6 +46,7 @@ var targetDisplay = document.getElementById("display");
 
 var displayArray = [];
 var calcArr = 0;
+var lastOperation = "";
 
 function action7(){
   displayArray.push(7);
@@ -67,6 +68,7 @@ function actionPlus(){
   calcArr = calculator.getTotal();
   displayArray = [];
   targetDisplay.innerHTML = calcArr;
+  lastOperation = "plus";
 }
 
 function actionSubtract(){
@@ -78,8 +80,13 @@ function actionSubtract(){
 }
 
 function actionEqual(){
-  console.log(displayArray);
-  console.log(calcArr);
+  if(lastOperation === "plus"){
+    var num1 = Number(calcArr);
+    displayArray = [];
+    var total = calculator.add(num1);
+    targetDisplay.innerHTML = total;
+    calcArr = 0;
+  }
 }
 
 
