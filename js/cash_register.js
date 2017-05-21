@@ -88,6 +88,3 @@ addButton(target8, action8);
 addButton(targetPlus, actionPlus);
 addButton(targetSubtract, actionSubtract);
 addButton(targetEqual, actionEqual);
-
-
-
