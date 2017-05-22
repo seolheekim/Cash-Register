@@ -1,19 +1,32 @@
-var rowArray1 = ["[ 7 ]", "[ 8 ]", "[ 9 ]", "[ % ]", "[ Clear ]"];
-var rowArray2 = ["[ 4 ]", "[ 5 ]", "[ 6 ]", "[ x ]", "[ Get Balance ]"];
-var rowArray3 = ["[ 1 ]", "[ 2 ]", "[ 3 ]", "[ - ]", "[ Withdraw Cash ]" ];
-var rowArray4 = [" [ 0 ] ", " [ 00 ] ", " [ . ] ", " [ + ] "];
-var rowArray5 = [" [ = ] "];
-
+//target IDs and classes------------------------------------------------------------
 var targetRow1 = document.getElementsByClassName("row1");
 var targetRow2 = document.getElementsByClassName("row2");
 var targetRow3 = document.getElementsByClassName("row3");
 var targetRow4 = document.getElementsByClassName("row4");
 var targetRow5 = document.getElementsByClassName("row5");
 
+var target1 = document.getElementById("target1");
+var target2 = document.getElementById("target2");
+var target3 = document.getElementById("target3");
+var target4 = document.getElementById("target4");
+var target5 = document.getElementById("target5");
+var target6 = document.getElementById("target6");
+var target7 = document.getElementById("target7");
+var target8 = document.getElementById("target8");
+var target9 = document.getElementById("target9");
 var targetButton = document.getElementsByClassName("button");
 
-function addRow(rowArray, rowTarget) {
+var targetDisplay = document.querySelector("#display");
+//target IDs and classes^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-
 
+var rowArray1 = ["[ 7 ]", "[ 8 ]", "[ 9 ]", "[ % ]", "[ Clear ]"];
+var rowArray2 = ["[ 4 ]", "[ 5 ]", "[ 6 ]", "[ x ]", "[ Get Balance ]"];
+var rowArray3 = ["[ 1 ]", "[ 2 ]", "[ 3 ]", "[ - ]", "[ Withdraw Cash ]" ];
+var rowArray4 = [" [ 0 ] ", " [ 00 ] ", " [ . ] ", " [ + ] "];
+var rowArray5 = [" [ = ] "];
+
+
+function addRow(rowArray, rowTarget) {
   for(var i = 0; i < rowArray.length; i++){
     var createButton = document.createElement("div");
     createButton.className = "button";
@@ -35,14 +48,11 @@ function addNames(array) {
   }
 }
 addNames(buttonNames);
+// Creates buttons and layout ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-function addButton(target, doSomething){
-  target.addEventListener('click', doSomething);
-}
 
-var targetDisplay = document.getElementById("display");
 
-var cashRegister = function(){
+var cashRegister = function(){ //CASH REGISTER MODULE
 
   var displayCount = 0;
   var displayArr = [];
@@ -50,20 +60,35 @@ var cashRegister = function(){
   var memory = 0;
   var lastOperation = "";
 
-  function display(num){
+  var displayNum = function(num){
     displayArr.push(num);
-    targetDisplay = displayArr.join("");
-    console.log('test');
-  }
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+
 
 
 
 
   return {
-    display : display
+    displayNum : displayNum
+
+
+
   };
 };
 
 var register = cashRegister();
 
-addButton(target7, register.display(7));
+function addClick(target, doSomething){
+  target.addEventListener("click", doSomething);
+}
+
+
+
+
+
+
+
+
+
+
