@@ -1,4 +1,4 @@
-// Creates buttons and layout START--------------------------------------------------
+// Creates buttons and layout START------------------------------------------------->
 var targetRow1 = document.getElementsByClassName("row1");
 var targetRow2 = document.getElementsByClassName("row2");
 var targetRow3 = document.getElementsByClassName("row3");
@@ -29,14 +29,14 @@ addRow(rowArray5, targetRow5);
 
 var targetButton = document.getElementsByClassName("button");
 
-var buttonNames = ["target7", "target8", "target9", "targetDivide", "targetClear", "target4", "target5", "target6", "targetTimes", "targetGetBalance", "target1", "target2", "target3", "targetSubtract", "targetWithdrawCash", "target0", "target00", "targetPeriod", "targetAdd", "targetEqual"];
+var buttonNames = ["target7", "target8", "target9", "targetDivide", "targetClear", "target4", "target5", "target6", "targetMultiply", "targetGetBalance", "target1", "target2", "target3", "targetSubtract", "targetWithdrawCash", "target0", "target00", "targetPeriod", "targetAdd", "targetEqual"];
 function addNames(array) {
   for(var i = 0; i < array.length; i++){
     targetButton[i].id = array[i];
   }
 }
 addNames(buttonNames);
-// Creates buttons and layout END^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Creates buttons and layout END^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^>
 
 
 var targetDisplay = document.querySelector("#display");//Creating targets for recently created HTML IDs and Classes
@@ -52,10 +52,12 @@ var target7 = document.getElementById("target7");
 var target8 = document.getElementById("target8");
 var target9 = document.getElementById("target9");
 var targetAdd = document.getElementById("targetAdd");
+var targetSubtract = document.getElementById("targetSubtract");
+var targetMultiply = document.getElementById("targetMultiply");
 var targetEqual = document.getElementById("targetEqual");
 
 
-var cashRegister = (function(){ //CASH REGISTER MODULE START---------------------------
+var cashRegister = (function(){ //CASH REGISTER MODULE START-------------------------->
 
   var displayCount = 0;
   var displayArr = [];
@@ -108,15 +110,38 @@ var cashRegister = (function(){ //CASH REGISTER MODULE START--------------------
     displayArr = [];
     lastOperation = "add";
   };
+  var actionSubtract = function(){
+    temp = Number(targetDisplay.innerHTML);
+    displayArr = [];
+    lastOperation = "subtract";
+  };
+  var actionMultiply = function(){
+    temp = Number(targetDisplay.innerHTML);
+    displayArr = [];
+    lastOperation = "multiply";
+  };
   var actionEqual = function(){
-    if(lastOperation === "add"){
+    if (lastOperation === "add"){
       calc.add(temp);
       calc.add(Number(targetDisplay.innerHTML));
       targetDisplay.innerHTML = calc.getTotal();
       displayArr = [];
       temp = 0;
       calc.load(0);
-
+    } else if (lastOperation === "subtract"){
+      calc.load(temp);
+      calc.subtract(Number(targetDisplay.innerHTML));
+      targetDisplay.innerHTML = calc.getTotal();
+      displayArr = [];
+      temp = 0;
+      calc.load(0);
+    } else if (lastOperation === "multiply"){
+      calc.load(temp);
+      calc.multiply(Number(targetDisplay.innerHTML));
+      targetDisplay.innerHTML = calc.getTotal();
+      displayArr = [];
+      temp = 0;
+      calc.load(0);
     }
   };
 
@@ -132,6 +157,8 @@ var cashRegister = (function(){ //CASH REGISTER MODULE START--------------------
     action9 : action9,
     action0 : action0,
     actionAdd : actionAdd,
+    actionSubtract : actionSubtract,
+    actionMultiply : actionMultiply,
     actionEqual : actionEqual
 
 
@@ -140,7 +167,7 @@ var cashRegister = (function(){ //CASH REGISTER MODULE START--------------------
 
 var register = cashRegister();
 
-//CASH REGISTER MODULE END -------------------------------------------------------------
+//CASH REGISTER MODULE END ---------------------------------------------------------->
 
 
 
@@ -148,7 +175,7 @@ function addClick(target, doSomething){
   target.addEventListener("click", doSomething);
 }
 
-addClick(target1, register.action1);
+addClick(target1, register.action1); //Adding button events AND corresponding functions
 addClick(target2, register.action2);
 addClick(target3, register.action3);
 addClick(target4, register.action4);
@@ -159,6 +186,8 @@ addClick(target8, register.action8);
 addClick(target9, register.action9);
 addClick(target0, register.action0);
 addClick(targetAdd, register.actionAdd);
+addClick(targetSubtract, register.actionSubtract);
+addClick(targetMultiply, register.actionMultiply);
 addClick(targetEqual, register.actionEqual);
 
 
