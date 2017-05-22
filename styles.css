@@ -4,3 +4,11 @@
   font-size: 50px;
 }
 
+#display {
+  font-size: 50px;
+}
+
+.button:hover {
+  color: #8b0000;
+  cursor: pointer;
+}

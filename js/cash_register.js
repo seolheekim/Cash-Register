@@ -5,8 +5,8 @@ var targetRow3 = document.getElementsByClassName("row3");
 var targetRow4 = document.getElementsByClassName("row4");
 var targetRow5 = document.getElementsByClassName("row5");
 
-var rowArray1 = ["[ 7 ]", "[ 8 ]", "[ 9 ]", "[ % ]", "[ Clear ]"];
-var rowArray2 = ["[ 4 ]", "[ 5 ]", "[ 6 ]", "[ x ]", "[ Get Balance ]"];
+var rowArray1 = ["[ 7 ]", "[ 8 ]", "[ 9 ]", "[ ÷ ]", "[ Clear ]"];
+var rowArray2 = ["[ 4 ]", "[ 5 ]", "[ 6 ]", "[ X ]", "[ Get Balance ]"];
 var rowArray3 = ["[ 1 ]", "[ 2 ]", "[ 3 ]", "[ - ]", "[ Withdraw Cash ]" ];
 var rowArray4 = [" [ 0 ] ", " [ 00 ] ", " [ . ] ", " [ + ] "];
 var rowArray5 = [" [ = ] "];
@@ -148,6 +148,7 @@ var cashRegister = (function(){
       calc.load(0);
     }
   };
+
 
   return { //exporting functions to be used outside of module
     action1 : action1,
