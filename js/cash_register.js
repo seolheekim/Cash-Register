@@ -28,8 +28,6 @@ addRow(rowArray3, targetRow3);
 addRow(rowArray4, targetRow4);
 addRow(rowArray5, targetRow5);
 
-
-
 var buttonNames = ["target7", "target8", "target9", "targetDivide", "targetClear", "target4", "target5", "target6", "targetTimes", "targetGetBalance", "target1", "target2", "target3", "targetSubtract", "targetWithdrawCash", "target0", "target00", "targetPeriod", "targetPlus", "targetEqual"];
 function addNames(array) {
   for(var i = 0; i < array.length; i++){
@@ -39,59 +37,33 @@ function addNames(array) {
 addNames(buttonNames);
 
 function addButton(target, doSomething){
-  target.addEventListener('click', doSomething)
+  target.addEventListener('click', doSomething);
 }
 
 var targetDisplay = document.getElementById("display");
 
-var displayArray = [];
-var calcArr = 0;
-var lastOperation = "";
+var cashRegister = function(){
 
-function action7(){
-  displayArray.push(7);
-  calcArr = displayArray.join("");
-  targetDisplay.innerHTML = calcArr;
-  displayArray.join("");
-}
+  var displayCount = 0;
+  var displayArr = [];
+  var total = 0;
+  var memory = 0;
+  var lastOperation = "";
 
-function action8(){
-  displayArray.push(8);
-  calcArr = displayArray.join("");
-  targetDisplay.innerHTML = calcArr;
-  displayArray.join("");
-}
-
-function actionPlus(){
-  var num1 = Number(calcArr);
-  calculator.add(num1);
-  calcArr = calculator.getTotal();
-  displayArray = [];
-  targetDisplay.innerHTML = calcArr;
-  lastOperation = "plus";
-}
-
-function actionSubtract(){
-  var num1 = Number(calcArr);
-  calculator.subtract(num1);
-  calcArr = calculator.getTotal();
-  displayArray = [];
-  targetDisplay.innerHTML = calcArr;
-}
-
-function actionEqual(){
-  if(lastOperation === "plus"){
-    var num1 = Number(calcArr);
-    displayArray = [];
-    var total = calculator.add(num1);
-    targetDisplay.innerHTML = total;
-    calcArr = 0;
+  function display(num){
+    displayArr.push(num);
+    targetDisplay = displayArr.join("");
+    console.log('test');
   }
-}
 
 
-addButton(target7, action7);
-addButton(target8, action8);
-addButton(targetPlus, actionPlus);
-addButton(targetSubtract, actionSubtract);
-addButton(targetEqual, actionEqual);
+
+
+  return {
+    display : display
+  };
+};
+
+var register = cashRegister();
+
+addButton(target7, register.display(7));
