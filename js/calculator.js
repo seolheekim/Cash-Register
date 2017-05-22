@@ -78,4 +78,4 @@ function calculatorModule(){
 
  }
 
- var calculator = calculatorModule();
+ var calc = calculatorModule();

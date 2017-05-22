@@ -29,14 +29,14 @@ addRow(rowArray5, targetRow5);
 
 var targetButton = document.getElementsByClassName("button");
 
-var buttonNames = ["target7", "target8", "target9", "targetDivide", "targetClear", "target4", "target5", "target6", "targetTimes", "targetGetBalance", "target1", "target2", "target3", "targetSubtract", "targetWithdrawCash", "target0", "target00", "targetPeriod", "targetPlus", "targetEqual"];
+var buttonNames = ["target7", "target8", "target9", "targetDivide", "targetClear", "target4", "target5", "target6", "targetTimes", "targetGetBalance", "target1", "target2", "target3", "targetSubtract", "targetWithdrawCash", "target0", "target00", "targetPeriod", "targetAdd", "targetEqual"];
 function addNames(array) {
   for(var i = 0; i < array.length; i++){
     targetButton[i].id = array[i];
   }
 }
 addNames(buttonNames);
-// Creates buttons and layout END^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Creates buttons and layout END^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 var targetDisplay = document.querySelector("#display");//Creating targets for recently created HTML IDs and Classes
@@ -51,16 +51,16 @@ var target6 = document.getElementById("target6");
 var target7 = document.getElementById("target7");
 var target8 = document.getElementById("target8");
 var target9 = document.getElementById("target9");
+var targetAdd = document.getElementById("targetAdd");
+var targetEqual = document.getElementById("targetEqual");
 
 
-
-
-var cashRegister = (function(){ //CASH REGISTER MODULE START----------------------------
+var cashRegister = (function(){ //CASH REGISTER MODULE START---------------------------
 
   var displayCount = 0;
   var displayArr = [];
   var total = 0;
-  var memory = 0;
+  var temp = 0;
   var lastOperation = "";
 
   var action1 = function(){
@@ -103,8 +103,21 @@ var cashRegister = (function(){ //CASH REGISTER MODULE START--------------------
     displayArr.push(0);
     targetDisplay.innerHTML = displayArr.join("");
   };
-
-
+  var actionAdd = function(){
+    temp = Number(targetDisplay.innerHTML);
+    displayArr = [];
+    lastOperation = "add";
+  };
+  var actionEqual = function(){
+    if(lastOperation === "add"){
+      calc.add(temp);
+      calc.add(Number(targetDisplay.innerHTML));
+      targetDisplay.innerHTML = calc.getTotal();
+      displayArr = [];
+      temp = 0;
+      calc.load(0);
+    }
+  };
 
   return {
     action1 : action1,
@@ -116,7 +129,9 @@ var cashRegister = (function(){ //CASH REGISTER MODULE START--------------------
     action7 : action7,
     action8 : action8,
     action9 : action9,
-    action0 : action0
+    action0 : action0,
+    actionAdd : actionAdd,
+    actionEqual : actionEqual
 
 
   };
@@ -142,5 +157,7 @@ addClick(target7, register.action7);
 addClick(target8, register.action8);
 addClick(target9, register.action9);
 addClick(target0, register.action0);
+addClick(targetAdd, register.actionAdd);
+addClick(targetEqual, register.actionEqual);
 
 
