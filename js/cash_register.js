@@ -1,23 +1,9 @@
-//target IDs and classes------------------------------------------------------------
+// Creates buttons and layout START--------------------------------------------------
 var targetRow1 = document.getElementsByClassName("row1");
 var targetRow2 = document.getElementsByClassName("row2");
 var targetRow3 = document.getElementsByClassName("row3");
 var targetRow4 = document.getElementsByClassName("row4");
 var targetRow5 = document.getElementsByClassName("row5");
-
-var target1 = document.getElementById("target1");
-var target2 = document.getElementById("target2");
-var target3 = document.getElementById("target3");
-var target4 = document.getElementById("target4");
-var target5 = document.getElementById("target5");
-var target6 = document.getElementById("target6");
-var target7 = document.getElementById("target7");
-var target8 = document.getElementById("target8");
-var target9 = document.getElementById("target9");
-var targetButton = document.getElementsByClassName("button");
-
-var targetDisplay = document.querySelector("#display");
-//target IDs and classes^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-
 
 var rowArray1 = ["[ 7 ]", "[ 8 ]", "[ 9 ]", "[ % ]", "[ Clear ]"];
 var rowArray2 = ["[ 4 ]", "[ 5 ]", "[ 6 ]", "[ x ]", "[ Get Balance ]"];
@@ -41,6 +27,8 @@ addRow(rowArray3, targetRow3);
 addRow(rowArray4, targetRow4);
 addRow(rowArray5, targetRow5);
 
+var targetButton = document.getElementsByClassName("button");
+
 var buttonNames = ["target7", "target8", "target9", "targetDivide", "targetClear", "target4", "target5", "target6", "targetTimes", "targetGetBalance", "target1", "target2", "target3", "targetSubtract", "targetWithdrawCash", "target0", "target00", "targetPeriod", "targetPlus", "targetEqual"];
 function addNames(array) {
   for(var i = 0; i < array.length; i++){
@@ -48,11 +36,26 @@ function addNames(array) {
   }
 }
 addNames(buttonNames);
-// Creates buttons and layout ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Creates buttons and layout END^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+var targetDisplay = document.querySelector("#display");//Creating targets for recently created HTML IDs and Classes
+targetDisplay.innerHTML = 0;
+
+var target1 = document.getElementById("target1");
+var target2 = document.getElementById("target2");
+var target3 = document.getElementById("target3");
+var target4 = document.getElementById("target4");
+var target5 = document.getElementById("target5");
+var target6 = document.getElementById("target6");
+var target7 = document.getElementById("target7");
+var target8 = document.getElementById("target8");
+var target9 = document.getElementById("target9");
 
 
 
-var cashRegister = function(){ //CASH REGISTER MODULE
+
+var cashRegister = (function(){ //CASH REGISTER MODULE START----------------------------
 
   var displayCount = 0;
   var displayArr = [];
@@ -60,35 +63,84 @@ var cashRegister = function(){ //CASH REGISTER MODULE
   var memory = 0;
   var lastOperation = "";
 
-  var displayNum = function(num){
-    displayArr.push(num);
+  var action1 = function(){
+    displayArr.push(1);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action2 = function(){
+    displayArr.push(2);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action3 = function(){
+    displayArr.push(3);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action4 = function(){
+    displayArr.push(4);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action5 = function(){
+    displayArr.push(5);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action6 = function(){
+    displayArr.push(6);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action7 = function(){
+    displayArr.push(7);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action8 = function(){
+    displayArr.push(8);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action9 = function(){
+    displayArr.push(9);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action0 = function(){
+    displayArr.push(0);
     targetDisplay.innerHTML = displayArr.join("");
   };
 
 
 
-
-
   return {
-    displayNum : displayNum
-
+    action1 : action1,
+    action2 : action2,
+    action3 : action3,
+    action4 : action4,
+    action5 : action5,
+    action6 : action6,
+    action7 : action7,
+    action8 : action8,
+    action9 : action9,
+    action0 : action0
 
 
   };
-};
+});
 
 var register = cashRegister();
+
+//CASH REGISTER MODULE END -------------------------------------------------------------
+
+
 
 function addClick(target, doSomething){
   target.addEventListener("click", doSomething);
 }
 
-
-
-
-
-
-
-
+addClick(target1, register.action1);
+addClick(target2, register.action2);
+addClick(target3, register.action3);
+addClick(target4, register.action4);
+addClick(target5, register.action5);
+addClick(target6, register.action6);
+addClick(target7, register.action7);
+addClick(target8, register.action8);
+addClick(target9, register.action9);
+addClick(target0, register.action0);
 
 
