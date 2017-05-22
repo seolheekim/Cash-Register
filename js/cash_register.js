@@ -39,7 +39,9 @@ addNames(buttonNames);
 // Creates buttons and layout END^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^>
 
 
-var targetDisplay = document.querySelector("#display");//Creating targets for recently created HTML IDs and Classes
+
+//Creating targets for recently created HTML IDs and Classes START-------------------->
+var targetDisplay = document.querySelector("#display");
 targetDisplay.innerHTML = 0;
 
 var target1 = document.getElementById("target1");
@@ -55,9 +57,11 @@ var targetAdd = document.getElementById("targetAdd");
 var targetSubtract = document.getElementById("targetSubtract");
 var targetMultiply = document.getElementById("targetMultiply");
 var targetEqual = document.getElementById("targetEqual");
+//Creating targets for recently created HTML IDs and Classes END-------------------->
 
 
-var cashRegister = (function(){ //CASH REGISTER MODULE START-------------------------->
+//CASH REGISTER MODULE START------------------------------------------------------->
+var cashRegister = (function(){
 
   var displayCount = 0;
   var displayArr = [];
@@ -145,7 +149,7 @@ var cashRegister = (function(){ //CASH REGISTER MODULE START--------------------
     }
   };
 
-  return {
+  return { //exporting functions to be used outside of module
     action1 : action1,
     action2 : action2,
     action3 : action3,
