@@ -116,6 +116,7 @@ var cashRegister = (function(){ //CASH REGISTER MODULE START--------------------
       displayArr = [];
       temp = 0;
       calc.load(0);
+
     }
   };
 
