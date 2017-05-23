@@ -25,7 +25,11 @@
 }
 
 #container{
-  width: 100%;
+  width: 80%;
+  margin-left: 106px;
+  padding: 10px;
+  background-color: grey;
+  border-radius: 1%;
 }
 
 #targetClear{
@@ -57,4 +61,19 @@
 }
 
 .row1{
+  margin-left:50px;
+  margin-top: 5px;
+}
+.row2{
+  margin-left:50px;
+}
+.row3{
+  margin-left:50px;
+}
+.row4{
+  margin-left:50px;
+}
+.row5{
+  margin-left:50px;
+  margin-bottom: -10px;
 }
