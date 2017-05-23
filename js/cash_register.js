@@ -53,10 +53,15 @@ var target6 = document.getElementById("target6");
 var target7 = document.getElementById("target7");
 var target8 = document.getElementById("target8");
 var target9 = document.getElementById("target9");
+var target0 = document.getElementById("target0");
+var target00 = document.getElementById("target00");
 var targetAdd = document.getElementById("targetAdd");
 var targetSubtract = document.getElementById("targetSubtract");
 var targetMultiply = document.getElementById("targetMultiply");
+var targetDivide = document.getElementById("targetDivide");
 var targetEqual = document.getElementById("targetEqual");
+
+
 //Creating targets for recently created HTML IDs and Classes END-------------------->
 
 
@@ -107,6 +112,10 @@ var cashRegister = (function(){
   };
   var action0 = function(){
     displayArr.push(0);
+    targetDisplay.innerHTML = displayArr.join("");
+  };
+  var action00 = function(){
+    displayArr.push("00");
     targetDisplay.innerHTML = displayArr.join("");
   };
   var actionAdd = function(){
@@ -161,6 +170,7 @@ var cashRegister = (function(){
     action8 : action8,
     action9 : action9,
     action0 : action0,
+    action00 : action00,
     actionAdd : actionAdd,
     actionSubtract : actionSubtract,
     actionMultiply : actionMultiply,
@@ -173,7 +183,6 @@ var cashRegister = (function(){
 var register = cashRegister();
 
 //CASH REGISTER MODULE END ---------------------------------------------------------->
-
 
 
 function addClick(target, doSomething){
@@ -190,6 +199,7 @@ addClick(target7, register.action7);
 addClick(target8, register.action8);
 addClick(target9, register.action9);
 addClick(target0, register.action0);
+addClick(target00, register.action00);
 addClick(targetAdd, register.actionAdd);
 addClick(targetSubtract, register.actionSubtract);
 addClick(targetMultiply, register.actionMultiply);
