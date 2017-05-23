@@ -2,10 +2,12 @@
   padding: 10px 40px;
   margin: 0px 10px 10px 0px;
   border-radius: 10px;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Gloria Hallelujah', cursive;
   font-size: 25px;
   color: #FFF;
   text-decoration: none;
+  width: 15%;
+  height: 100%;
 }
 
 .animate
@@ -23,30 +25,36 @@
 }
 
 #container{
-  width: 80%;
-  border
+  width: 100%;
 }
 
 #targetClear{
   background-color: #E74C3C;
   border-bottom: 5px solid #BD3E31;
   text-shadow: 0px -2px #BD3E31;
+  width: 30%;
 }
 
 #targetGetBalance{
   background-color: #3498DB;
   border-bottom: 5px solid #2980B9;
   text-shadow: 0px -2px #2980B9;
+  width: 30%;
 }
 
 #targetDepositCash{
   background-color: #82BF56;
   border-bottom: 5px solid #669644;
   text-shadow: 0px -2px #669644;
+  width: 30%;
 }
 
 #targetWithdrawCash{
   background-color: #F2CF66;
   border-bottom: 5px solid #D1B358;
   text-shadow: 0px -2px #D1B358;
+  width: 30%;
+}
+
+.row1{
 }
