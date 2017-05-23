@@ -127,17 +127,14 @@ var cashRegister = (function(){
         for(var i = 0; i < haystack.length; i++){
           if(needle === haystack[i]){
             return true;
-          }else{
-            return false;
           }
         }
-      };
+      }
 
-      if(inArray(".", strArray)){
+      var isItTrue = inArray(".", strArray);
+      if(isItTrue !== true){
         displayArr.push(".");
         targetDisplay.innerHTML = displayArr.join("");
-      }else{
-        null;
       }
   };
   var actionAdd = function(){
