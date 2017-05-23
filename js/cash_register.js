@@ -63,6 +63,8 @@ var targetDivide = document.getElementById("targetDivide");
 var targetEqual = document.getElementById("targetEqual");
 var targetClear = document.getElementById("targetClear");
 var targetGetBalance = document.getElementById("targetGetBalance");
+var targetDepositCash = document.getElementById("targetDepositCash");
+var targetWithdrawCash = document.getElementById("targetWithdrawCash");
 
 
 //Creating targets for recently created HTML IDs and Classes END-------------------->
@@ -165,7 +167,7 @@ var cashRegister = (function(){
     displayArr = [];
     lastOperation = "";
     calc.load(0);
-  }
+  };
 
   var actionEqual = function(){
     if (lastOperation === "add"){
@@ -203,6 +205,21 @@ var cashRegister = (function(){
     }
   };
 
+  var actionGetBalance = function(){
+    targetDisplay.innerHTML = memory;
+    displayArr = [];
+  };
+  var actionDepositCash = function(){
+    memory = Number(targetDisplay.innerHTML);
+    targetDisplay.innerHTML = 0;
+    displayArr = [];
+  };
+  var actionWithdrawCash = function(){
+    memory -= targetDisplay.innerHTML;
+    targetDisplay.innerHTML = 0;
+    displayArr = [];
+  };
+
 
   return { //exporting functions to be used outside of module
     action1 : action1,
@@ -222,8 +239,10 @@ var cashRegister = (function(){
     actionMultiply : actionMultiply,
     actionDivide : actionDivide,
     actionClear : actionClear,
-    actionEqual : actionEqual
-
+    actionEqual : actionEqual,
+    actionGetBalance : actionGetBalance,
+    actionDepositCash : actionDepositCash,
+    actionWithdrawCash : actionWithdrawCash
 
   };
 });
@@ -255,5 +274,9 @@ addClick(targetMultiply, register.actionMultiply);
 addClick(targetDivide, register.actionDivide);
 addClick(targetClear, register.actionClear);
 addClick(targetEqual, register.actionEqual);
+addClick(targetGetBalance, register.actionGetBalance);
+addClick(targetDepositCash, register.actionDepositCash);
+addClick(targetWithdrawCash, register.actionWithdrawCash);
+
 
 
