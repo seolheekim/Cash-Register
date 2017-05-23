@@ -156,21 +156,24 @@ var cashRegister = (function(){
     if (lastOperation === "add"){
       calc.add(temp);
       calc.add(Number(targetDisplay.innerHTML));
-      targetDisplay.innerHTML = calc.getTotal();
+      targetDisplay.innerHTML = parseFloat(Math.round(calc.getTotal() * 100) / 100).toFixed(2);
+
       displayArr = [];
       temp = 0;
       calc.load(0);
     } else if (lastOperation === "subtract"){
       calc.load(temp);
       calc.subtract(Number(targetDisplay.innerHTML));
-      targetDisplay.innerHTML = calc.getTotal();
+      targetDisplay.innerHTML = parseFloat(Math.round(calc.getTotal() * 100) / 100).toFixed(2);
+
       displayArr = [];
       temp = 0;
       calc.load(0);
     } else if (lastOperation === "multiply"){
       calc.load(temp);
       calc.multiply(Number(targetDisplay.innerHTML));
-      targetDisplay.innerHTML = calc.getTotal();
+      targetDisplay.innerHTML = parseFloat(Math.round(calc.getTotal() * 100) / 100).toFixed(2);
+
       displayArr = [];
       temp = 0;
       calc.load(0);
