@@ -56,10 +56,12 @@ var target9 = document.getElementById("target9");
 var target0 = document.getElementById("target0");
 var target00 = document.getElementById("target00");
 var targetAdd = document.getElementById("targetAdd");
+var targetPeriod = document.getElementById("targetPeriod");
 var targetSubtract = document.getElementById("targetSubtract");
 var targetMultiply = document.getElementById("targetMultiply");
 var targetDivide = document.getElementById("targetDivide");
 var targetEqual = document.getElementById("targetEqual");
+
 
 
 //Creating targets for recently created HTML IDs and Classes END-------------------->
@@ -118,6 +120,26 @@ var cashRegister = (function(){
     displayArr.push("00");
     targetDisplay.innerHTML = displayArr.join("");
   };
+  var actionPeriod = function() {
+    var strArray = targetDisplay.innerHTML.split("");
+
+      function inArray(needle, haystack){
+        for(var i = 0; i < haystack.length; i++){
+          if(needle === haystack[i]){
+            return true;
+          }else{
+            return false;
+          }
+        }
+      };
+
+      if(inArray(".", strArray)){
+        displayArr.push(".");
+        targetDisplay.innerHTML = displayArr.join("");
+      }else{
+        null;
+      }
+  };
   var actionAdd = function(){
     temp = Number(targetDisplay.innerHTML);
     displayArr = [];
@@ -171,6 +193,7 @@ var cashRegister = (function(){
     action9 : action9,
     action0 : action0,
     action00 : action00,
+    actionPeriod : actionPeriod,
     actionAdd : actionAdd,
     actionSubtract : actionSubtract,
     actionMultiply : actionMultiply,
@@ -200,6 +223,7 @@ addClick(target8, register.action8);
 addClick(target9, register.action9);
 addClick(target0, register.action0);
 addClick(target00, register.action00);
+addClick(targetPeriod, register.actionPeriod);
 addClick(targetAdd, register.actionAdd);
 addClick(targetSubtract, register.actionSubtract);
 addClick(targetMultiply, register.actionMultiply);
