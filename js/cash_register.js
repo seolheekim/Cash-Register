@@ -5,16 +5,16 @@ var targetRow3 = document.getElementsByClassName("row3");
 var targetRow4 = document.getElementsByClassName("row4");
 var targetRow5 = document.getElementsByClassName("row5");
 
-var rowArray1 = ["[ 7 ]", "[ 8 ]", "[ 9 ]", "[ ÷ ]", "[ Clear ]"];
-var rowArray2 = ["[ 4 ]", "[ 5 ]", "[ 6 ]", "[ X ]", "[ Get Balance ]"];
-var rowArray3 = ["[ 1 ]", "[ 2 ]", "[ 3 ]", "[ - ]", "[ Deposit Cash ]" ];
-var rowArray4 = [" [ 0 ] ", " [ 00 ] ", " [ . ] ", " [ + ] ", "[ Withdraw Cash ]"];
-var rowArray5 = [" [ = ] "];
+var rowArray1 = ["7", "8", "9", "÷", "Clear"];
+var rowArray2 = ["4", "5", "6", "X", "Get Balance"];
+var rowArray3 = ["1", "2", "3", "-", "Deposit Cash" ];
+var rowArray4 = ["0", "00", ".", "+", "Withdraw Cash"];
+var rowArray5 = ["="];
 
 
 function addRow(rowArray, rowTarget) {
   for(var i = 0; i < rowArray.length; i++){
-    var createButton = document.createElement("div");
+    var createButton = document.createElement("button");
     createButton.className = "button";
     createButton.innerHTML = rowArray[i];
     rowTarget[0].appendChild(createButton);
@@ -65,8 +65,6 @@ var targetClear = document.getElementById("targetClear");
 var targetGetBalance = document.getElementById("targetGetBalance");
 
 
-
-
 //Creating targets for recently created HTML IDs and Classes END-------------------->
 
 
@@ -77,6 +75,7 @@ var cashRegister = (function(){
   var displayArr = [];
   var total = 0;
   var temp = 0;
+  var memory = 0;
   var lastOperation = "";
 
   var action1 = function(){
