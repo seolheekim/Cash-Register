@@ -7,8 +7,8 @@ var targetRow5 = document.getElementsByClassName("row5");
 
 var rowArray1 = ["[ 7 ]", "[ 8 ]", "[ 9 ]", "[ ÷ ]", "[ Clear ]"];
 var rowArray2 = ["[ 4 ]", "[ 5 ]", "[ 6 ]", "[ X ]", "[ Get Balance ]"];
-var rowArray3 = ["[ 1 ]", "[ 2 ]", "[ 3 ]", "[ - ]", "[ Withdraw Cash ]" ];
-var rowArray4 = [" [ 0 ] ", " [ 00 ] ", " [ . ] ", " [ + ] "];
+var rowArray3 = ["[ 1 ]", "[ 2 ]", "[ 3 ]", "[ - ]", "[ Deposit Cash ]" ];
+var rowArray4 = [" [ 0 ] ", " [ 00 ] ", " [ . ] ", " [ + ] ", "[ Withdraw Cash ]"];
 var rowArray5 = [" [ = ] "];
 
 
@@ -29,7 +29,7 @@ addRow(rowArray5, targetRow5);
 
 var targetButton = document.getElementsByClassName("button");
 
-var buttonNames = ["target7", "target8", "target9", "targetDivide", "targetClear", "target4", "target5", "target6", "targetMultiply", "targetGetBalance", "target1", "target2", "target3", "targetSubtract", "targetWithdrawCash", "target0", "target00", "targetPeriod", "targetAdd", "targetEqual"];
+var buttonNames = ["target7", "target8", "target9", "targetDivide", "targetClear", "target4", "target5", "target6", "targetMultiply", "targetGetBalance", "target1", "target2", "target3", "targetSubtract", "targetDepositCash", "target0", "target00", "targetPeriod", "targetAdd", "targetWithdrawCash", "targetEqual"];
 function addNames(array) {
   for(var i = 0; i < array.length; i++){
     targetButton[i].id = array[i];
@@ -61,6 +61,9 @@ var targetSubtract = document.getElementById("targetSubtract");
 var targetMultiply = document.getElementById("targetMultiply");
 var targetDivide = document.getElementById("targetDivide");
 var targetEqual = document.getElementById("targetEqual");
+var targetClear = document.getElementById("targetClear");
+var targetGetBalance = document.getElementById("targetGetBalance");
+
 
 
 
@@ -152,6 +155,19 @@ var cashRegister = (function(){
     displayArr = [];
     lastOperation = "multiply";
   };
+  var actionDivide = function(){
+    temp = Number(targetDisplay.innerHTML);
+    displayArr = [];
+    lastOperation = "divide";
+  };
+  var actionClear = function() {
+    targetDisplay.innerHTML = 0;
+    temp = 0;
+    displayArr = [];
+    lastOperation = "";
+    calc.load(0);
+  }
+
   var actionEqual = function(){
     if (lastOperation === "add"){
       calc.add(temp);
@@ -177,6 +193,14 @@ var cashRegister = (function(){
       displayArr = [];
       temp = 0;
       calc.load(0);
+    } else if (lastOperation === "divide"){
+      calc.load(temp);
+      calc.divide(Number(targetDisplay.innerHTML));
+      targetDisplay.innerHTML = parseFloat(Math.round(calc.getTotal() * 100) / 100).toFixed(2);
+
+      displayArr = [];
+      temp = 0;
+      calc.load(0);
     }
   };
 
@@ -197,6 +221,8 @@ var cashRegister = (function(){
     actionAdd : actionAdd,
     actionSubtract : actionSubtract,
     actionMultiply : actionMultiply,
+    actionDivide : actionDivide,
+    actionClear : actionClear,
     actionEqual : actionEqual
 
 
@@ -227,6 +253,8 @@ addClick(targetPeriod, register.actionPeriod);
 addClick(targetAdd, register.actionAdd);
 addClick(targetSubtract, register.actionSubtract);
 addClick(targetMultiply, register.actionMultiply);
+addClick(targetDivide, register.actionDivide);
+addClick(targetClear, register.actionClear);
 addClick(targetEqual, register.actionEqual);
 
 
