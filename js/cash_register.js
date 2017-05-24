@@ -38,11 +38,14 @@ function addNames(array) {
 addNames(buttonNames);
 // Creates buttons and layout END^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^>
 
+var tmp ='0.00';
+tmp  = parseFloat(tmp.toString()).toFixed(2);
+var zeroed = parseFloat(tmp).toFixed(2);
 
 
 //Creating targets for recently created HTML IDs and Classes START-------------------->
 var targetDisplay = document.querySelector("#display");
-targetDisplay.innerHTML = 0;
+targetDisplay.innerHTML = zeroed;
 
 var target1 = document.getElementById("target1");
 var target2 = document.getElementById("target2");
@@ -73,7 +76,7 @@ var targetWithdrawCash = document.getElementById("targetWithdrawCash");
 //CASH REGISTER MODULE START------------------------------------------------------->
 var cashRegister = (function(){
 
-  var displayCount = 0;
+  var displayCount = zeroed;
   var displayArr = [];
   var total = 0;
   var temp = 0;
@@ -162,7 +165,7 @@ var cashRegister = (function(){
     lastOperation = "divide";
   };
   var actionClear = function() {
-    targetDisplay.innerHTML = 0;
+    targetDisplay.innerHTML = zeroed;
     temp = 0;
     displayArr = [];
     lastOperation = "";
@@ -174,12 +177,12 @@ var cashRegister = (function(){
   };
   var actionDepositCash = function(){
     memory = Number(targetDisplay.innerHTML);
-    targetDisplay.innerHTML = 0;
+    targetDisplay.innerHTML = zeroed;
     displayArr = [];
   };
   var actionWithdrawCash = function(){
     memory -= targetDisplay.innerHTML;
-    targetDisplay.innerHTML = 0;
+    targetDisplay.innerHTML = zeroed;
     displayArr = [];
   };
 
