@@ -1,3 +1,27 @@
+#dollar{
+  font-size: 50px;
+  display: inline;
+}
+
+#display {
+  font-size: 50px;
+  display: inline;
+}
+
+#topContainer{
+  width: 80%;
+  margin-left: 106px;
+  padding: 10px;
+}
+
+#container{
+  width: 80%;
+  margin-left: 106px;
+  padding: 10px;
+  background-color: grey;
+  border-radius: 1%;
+}
+
 .button {
   padding: 10px 40px;
   margin: 0px 10px 10px 0px;
@@ -16,21 +40,12 @@
   -webkit-transition: all 0.1s;
 }
 
-#display {
-  font-size: 50px;
-}
+
 
 .button:hover {
   cursor: pointer;
 }
 
-#container{
-  width: 80%;
-  margin-left: 106px;
-  padding: 10px;
-  background-color: grey;
-  border-radius: 1%;
-}
 
 #targetClear{
   background-color: #E74C3C;
