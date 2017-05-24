@@ -168,6 +168,20 @@ var cashRegister = (function(){
     lastOperation = "";
     calc.load(0);
   };
+  var actionGetBalance = function(){
+    targetDisplay.innerHTML = memory;
+    displayArr = [];
+  };
+  var actionDepositCash = function(){
+    memory = Number(targetDisplay.innerHTML);
+    targetDisplay.innerHTML = 0;
+    displayArr = [];
+  };
+  var actionWithdrawCash = function(){
+    memory -= targetDisplay.innerHTML;
+    targetDisplay.innerHTML = 0;
+    displayArr = [];
+  };
 
   var actionEqual = function(){
     if (lastOperation === "add"){
@@ -204,22 +218,6 @@ var cashRegister = (function(){
       calc.load(0);
     }
   };
-
-  var actionGetBalance = function(){
-    targetDisplay.innerHTML = memory;
-    displayArr = [];
-  };
-  var actionDepositCash = function(){
-    memory = Number(targetDisplay.innerHTML);
-    targetDisplay.innerHTML = 0;
-    displayArr = [];
-  };
-  var actionWithdrawCash = function(){
-    memory -= targetDisplay.innerHTML;
-    targetDisplay.innerHTML = 0;
-    displayArr = [];
-  };
-
 
   return { //exporting functions to be used outside of module
     action1 : action1,
