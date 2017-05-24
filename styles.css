@@ -1,11 +1,15 @@
+
+
 #dollar{
-  font-size: 50px;
+  font-size: 75px;
   display: inline;
+  font-family: 'digital-7regular';
 }
 
 #display {
-  font-size: 50px;
+  font-size: 75px;
   display: inline;
+  font-family: 'digital-7regular';
 }
 
 #topContainer{
