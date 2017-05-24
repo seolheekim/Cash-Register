@@ -76,7 +76,7 @@ var targetWithdrawCash = document.getElementById("targetWithdrawCash");
 //CASH REGISTER MODULE START------------------------------------------------------->
 var cashRegister = (function(){
 
-  var displayCount = zeroed;
+  var displayCount = 0;
   var displayArr = [];
   var total = 0;
   var temp = 0;
@@ -128,7 +128,7 @@ var cashRegister = (function(){
     targetDisplay.innerHTML = displayArr.join("");
   };
   var actionPeriod = function() {
-    var strArray = targetDisplay.innerHTML.split("");
+    //var strArray = targetDisplay.innerHTML.split("");
 
       function inArray(needle, haystack){
         for(var i = 0; i < haystack.length; i++){
@@ -138,7 +138,7 @@ var cashRegister = (function(){
         }
       }
 
-      var isItTrue = inArray(".", strArray);
+      var isItTrue = inArray(".", displayArr);
       if(isItTrue !== true){
         displayArr.push(".");
         targetDisplay.innerHTML = displayArr.join("");
