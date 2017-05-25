@@ -12,10 +12,16 @@
   font-family: 'digital-7regular';
 }
 
+
 #topContainer{
-  width: 80%;
+  width: 76%;
   margin-left: 106px;
   padding: 10px;
+  background-color: #d6d7d8;
+  border: solid 20px #929393;
+  height: auto;
+  border-radius: 3%;
+  margin-right: 100px;
 }
 
 #container{
