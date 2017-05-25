@@ -176,14 +176,16 @@ var cashRegister = (function(){
     displayArr = [];
   };
   var actionDepositCash = function(){
-    memory = Number(targetDisplay.innerHTML);
+    memory += Number(targetDisplay.innerHTML);
     targetDisplay.innerHTML = zeroed;
     displayArr = [];
   };
   var actionWithdrawCash = function(){
-    memory -= targetDisplay.innerHTML;
-    targetDisplay.innerHTML = zeroed;
-    displayArr = [];
+    if(Number(targetDisplay.innerHTML) >= memory){
+      memory -= targetDisplay.innerHTML;
+      targetDisplay.innerHTML = zeroed;
+      displayArr = [];
+    }
   };
 
   var actionEqual = function(){
