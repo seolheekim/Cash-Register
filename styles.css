@@ -4,24 +4,26 @@
   font-size: 75px;
   display: inline;
   font-family: 'digital-7regular';
+  float: right;
 }
 
 #display {
   font-size: 75px;
   display: inline;
   font-family: 'digital-7regular';
+  float: right;
 }
 
 
 #topContainer{
-  width: 76%;
+  width: 77%;
   margin-left: 106px;
   padding: 10px;
   background-color: #d6d7d8;
   border: solid 20px #929393;
-  height: auto;
   border-radius: 3%;
   margin-right: 100px;
+  height: 67px;
 }
 
 #container{
